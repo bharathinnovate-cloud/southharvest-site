@@ -248,7 +248,6 @@ footer .bottom{margin-top:40px;padding-top:22px;border-top:1px solid rgba(255,25
   @keyframes drift{from{transform:translateY(46px) scale(.97)}to{transform:none}}
 }
 @media (prefers-reduced-motion: reduce){
-  *,*::before,*::after{animation:none!important;transition:none!important}
   html{scroll-behavior:auto}
 }
 </style>
@@ -539,7 +538,7 @@ footer .bottom{margin-top:40px;padding-top:22px;border-top:1px solid rgba(255,25
 
 <script>
 (function(){
-  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var reduce = false; // animations always on (desktops with Windows animation effects off were showing a static page)
   var nav = document.getElementById('nav');
   addEventListener('scroll', function(){ nav.classList.toggle('scrolled', scrollY > 8); }, {passive:true});
   document.getElementById('yr').textContent = new Date().getFullYear();
